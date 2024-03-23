@@ -15,8 +15,12 @@ if __name__ == '__main__':
     model_checkpoint = "distilgpt2"
     tokenizer = AutoTokenizer.from_pretrained(model_checkpoint, use_fast=True)
 
-    DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
-    print(DEVICE)
+    if torch.cuda.is_available():
+        device = "cuda:0" 
+    else:
+        device = "cpu"
+        
+    print(device)
 
     def tokenize_function(examples):
         return tokenizer(examples['card info'])
@@ -85,5 +89,6 @@ if __name__ == '__main__':
             print(output_string.split('...')[0])
 
     print(generate_text("test 1"))
+    print(generate_text("Infernoble Knight "))
 
     trainer.save_model("ai_model")
