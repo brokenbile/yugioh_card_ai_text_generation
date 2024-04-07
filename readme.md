@@ -27,5 +27,7 @@ All card descriptions were obtained from https://db.ygoprodeck.com/api/v7/cardin
 
 train_ai_model.py trains a distilgpt2 model by fine-tuning, saving the fine-tuned model to the 'ai_model/' directory.
 
-load_ai_model.py loads a pre-trained model stored in the 'ai_model/' directory, allowing the user to generate text as prompted.
+load_ai_model.py loads a pre-trained model stored in the 'ai_model/' directory, allowing the user to generate text as prompted. By default, 5 separate strings are generated based on the user's input
 
+Additionally, server.py contains code for a flask server, loading a webpage which takes a user's input in a text box, and outputs a single generated text string in a new webpage.
+The html file for the flask server is located in templates/test.html, which can be changed as needed
